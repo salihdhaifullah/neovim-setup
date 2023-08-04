@@ -30,7 +30,6 @@ vim.keymap.set("n", "<leader>e", "<cmd>lua Copy_last_message()<CR>", { noremap =
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tms<CR>")
--- vim.keymap.set("n", "<C-f>", "<cmd>!tms<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 

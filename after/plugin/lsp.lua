@@ -2,8 +2,6 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({ 'tsserver' })
-
 lsp.nvim_workspace()
 
 local cmp = require('cmp')
@@ -23,7 +21,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = true,
+    suggest_lsp_servers = false,
     sign_icons = {
         error = 'E',
         warn = 'W',
