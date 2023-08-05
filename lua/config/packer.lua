@@ -13,8 +13,6 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme rose-pine')
         end
     })
-    use 'neovim/nvim-lspconfig'
-    use 'simrat39/rust-tools.nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
