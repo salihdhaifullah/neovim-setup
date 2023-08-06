@@ -1,7 +1,14 @@
 local lsp = require("lsp-zero")
+local cmp = require('cmp')
 
 lsp.preset("recommended")
 lsp.nvim_workspace()
+
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+})
+
+lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
