@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use { 'kamykn/spelunker.vim', config = [[vim.g.spelunker_check_type = 3]] }
+    use { 'mg979/vim-visual-multi', branch = 'master' }
     use {
         "folke/lsp-trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
