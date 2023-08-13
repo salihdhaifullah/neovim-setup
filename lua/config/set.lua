@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.opt.guicursor = ""
 vim.opt.nu = true
-vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 

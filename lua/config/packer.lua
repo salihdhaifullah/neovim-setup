@@ -14,9 +14,10 @@ return require('packer').startup(function(use)
         end
     })
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use "nvim-lua/plenary.nvim"
+    use "jose-elias-alvarez/null-ls.nvim"
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
-    use { 'kamykn/spelunker.vim', config = [[vim.g.spelunker_check_type = 3]] }
     use { 'mg979/vim-visual-multi', branch = 'master' }
     use {
         "folke/lsp-trouble.nvim",
