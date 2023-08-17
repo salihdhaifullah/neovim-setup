@@ -20,6 +20,11 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        "folke/todo-comments.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
+    }
+
     -- Treesitter for syntax highlighting and more
     use {
         'nvim-treesitter/nvim-treesitter',

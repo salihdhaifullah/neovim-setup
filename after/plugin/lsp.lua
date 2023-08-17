@@ -31,3 +31,5 @@ vim.diagnostic.config({
     update_in_insert = true,
     virtual_text = true
 })
+
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
