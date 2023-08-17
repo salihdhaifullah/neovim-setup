@@ -4,6 +4,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- For colors like vs-code
+    use 'NvChad/nvim-colorizer.lua'
+
     -- Telescope for fuzzy finding and more
     use {
         'nvim-telescope/telescope.nvim',
