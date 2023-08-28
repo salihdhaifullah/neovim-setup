@@ -10,9 +10,15 @@ vim.keymap.set("n", "n", "nzzzv")
 
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("n", "<C-q>", ":ccl<CR>")
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tms<CR>")
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
