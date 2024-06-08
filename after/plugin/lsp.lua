@@ -4,6 +4,13 @@ local cmp = require('cmp')
 lsp.preset("recommended")
 lsp.nvim_workspace()
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
+
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
 })
@@ -30,5 +37,5 @@ lsp.setup()
 
 vim.diagnostic.config({
     update_in_insert = true,
-    virtual_text = true
+    virtual_text = true,
 })

@@ -3,9 +3,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- For colors like vs-code
-    use 'NvChad/nvim-colorizer.lua'
-
     -- Telescope for fuzzy finding and more
     use {
         'nvim-telescope/telescope.nvim',
@@ -13,6 +10,7 @@ return require('packer').startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
+    -- for file tree
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -20,20 +18,12 @@ return require('packer').startup(function(use)
         },
     }
 
-    -- Rose-pine colorscheme
-    use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    }
+    -- catppuccin colorscheme
+    use { "catppuccin/nvim", as = "catppuccin" }
 
-    -- For todo highlighting
-    use {
-        "folke/todo-comments.nvim",
-        requires = { "nvim-lua/plenary.nvim" }
-    }
+
+    -- to easily handle multiply buffers at once
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     -- Treesitter for syntax highlighting and more
     use {
@@ -53,19 +43,10 @@ return require('packer').startup(function(use)
     -- Undotree for visualizing the undo history
     use 'mbbill/undotree'
 
-    -- Visual-multi for multiple cursors
-    use {
-        'mg979/vim-visual-multi',
-        branch = 'master'
-    }
-
     -- Lsp-trouble for showing LSP diagnostics in a list
     use {
         'folke/lsp-trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function()
-            require('trouble').setup {}
-        end
+        requires = 'kyazdani42/nvim-web-devicons'
     }
 
     -- Comment for easy commenting of code
