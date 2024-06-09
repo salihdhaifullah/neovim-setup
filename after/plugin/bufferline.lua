@@ -1,62 +1,25 @@
-require('bufferline').setup({
-    highlights = {
-        fill = {
-            guifg = '#ffffff',
-            guibg = '#1e1e2e',
-        },
-        background = {
-            guifg = '#ffffff',
-            guibg = '#ffffff',
-        },
-        buffer_selected = {
-            guifg = '#ffffff',
-            guibg = '#3b4252',
-            gui = 'bold',
-        },
-        separator_selected = {
-            guifg = '#3b4252',
-            guibg = '#1e1e2e',
-        },
-        separator_visible = {
-            guifg = '#1e1e2e',
-            guibg = '#1e1e2e',
-        },
-        separator = {
-            guifg = '#1e1e2e',
-            guibg = '#1e1e2e',
-        },
-        diagnostic_selected = { bold = true },
-        info_selected = { bold = true },
-        info_diagnostic_selected = { bold = true },
-        warning_selected = { bold = true },
-        warning_diagnostic_selected = { bold = true },
-        error_selected = { bold = true },
-        error_diagnostic_selected = { bold = true },
-    },
+require("bufferline").setup({
     options = {
-        show_close_icon = false,
-        diagnostics = 'nvim_lsp',
-        max_prefix_length = 8,
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-            if context.buffer:current() then
-                return ''
-            end
-            if level:match('error') then
-                return ' ' .. vim.g.diagnostic_icons.Error
-            elseif level:match('warning') then
-                return ' ' .. vim.g.diagnostic_icons.Warning
-            end
-            return ''
-        end,
-        custom_filter = function(buf_number, buf_numbers)
-            if vim.bo[buf_number].filetype ~= 'oil' then
-                return true
-            end
-        end,
-    },
+        offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } }
+    }
 })
 
-vim.keymap.set('n', '<leader>ts', '<CMD>BufferLinePickClose<CR>')
+
+vim.keymap.set('n', '<leader>C', [[:lua CloseCurrentBuffer()<CR>]], { noremap = true, silent = true })
+
+function CloseCurrentBuffer()
+    -- Get the buffer number of the current buffer
+    local current_buffer = vim.api.nvim_buf_get_number(0)
+
+    -- Close the current buffer
+    vim.cmd('bdelete')
+
+    -- If the current buffer is unnamed and there are other buffers open, close it
+    if vim.api.nvim_buf_is_loaded(current_buffer) and vim.api.nvim_buf_get_name(current_buffer) == '' then
+        vim.cmd('bdelete ' .. current_buffer)
+    end
+end
+
+vim.keymap.set('n', '<leader>C', ':enew<bar>bd #<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Tab>', '<CMD>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<Bs>', '<CMD>BufferLineCyclePrev<CR>')
-

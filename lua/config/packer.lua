@@ -6,24 +6,23 @@ return require('packer').startup(function(use)
     -- Telescope for fuzzy finding and more
     use {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.2',
-        requires = { 'nvim-lua/plenary.nvim' }
+        tag = '0.1.2'
     }
+
+    -- status line
+    use { 'nvim-lualine/lualine.nvim' }
 
     -- for file tree
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-    }
+    use { 'nvim-tree/nvim-tree.lua' }
+
+    use { 'nvim-tree/nvim-web-devicons' }
 
     -- catppuccin colorscheme
-    use { "catppuccin/nvim", as = "catppuccin" }
+    -- use { "catppuccin/nvim", as = "catppuccin" }
 
-
+    use 'Mofiqul/vscode.nvim'
     -- to easily handle multiply buffers at once
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = "*" }
 
     -- Treesitter for syntax highlighting and more
     use {
@@ -37,17 +36,11 @@ return require('packer').startup(function(use)
     -- Null-ls for using Neovim as a language server
     use 'jose-elias-alvarez/null-ls.nvim'
 
-    -- Harpoon for quick navigation and terminal management
-    use 'ThePrimeagen/harpoon'
-
     -- Undotree for visualizing the undo history
     use 'mbbill/undotree'
 
     -- Lsp-trouble for showing LSP diagnostics in a list
-    use {
-        'folke/lsp-trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
-    }
+    use { 'folke/lsp-trouble.nvim' }
 
     -- Comment for easy commenting of code
     use {
