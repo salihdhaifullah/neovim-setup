@@ -17,9 +17,6 @@ return require('packer').startup(function(use)
 
     use { 'nvim-tree/nvim-web-devicons' }
 
-    -- catppuccin colorscheme
-    -- use { "catppuccin/nvim", as = "catppuccin" }
-
     use 'Mofiqul/vscode.nvim'
     -- to easily handle multiply buffers at once
     use { 'akinsho/bufferline.nvim', tag = "*" }
@@ -41,14 +38,6 @@ return require('packer').startup(function(use)
 
     -- Lsp-trouble for showing LSP diagnostics in a list
     use { 'folke/lsp-trouble.nvim' }
-
-    -- Comment for easy commenting of code
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
 
     -- Fugitive for Git integration
     use 'tpope/vim-fugitive'

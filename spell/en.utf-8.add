@@ -49,3 +49,8 @@ Neovim
 Lua
 Furni
 ulid
+const
+Pragma
+crt
+=false
+off
