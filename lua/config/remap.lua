@@ -10,6 +10,21 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+vim.keymap.set("v", "<leader>s", function()
+    vim.cmd('normal! "+y')
+
+    local selection = vim.fn.getreg('+')
+
+    vim.fn.setreg('+', '')
+
+    selection = vim.fn.escape(selection, "/\\.*$^~[]")
+
+    local cmd = '[[' .. ':%s/' .. selection .. '/' .. selection .. '/gI'
+
+    vim.api.nvim_feedkeys(cmd, 'n', false)
+end)
+
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -29,7 +44,6 @@ function ReplaceVisual()
     local replacement = vim.fn.escape(vim.fn.input("Enter replacement: "), '\\/.*$^~[]')
     vim.api.nvim_command(":s/" .. selected_text .. "/" .. replacement .. "/g")
 end
-
 
 vim.keymap.set('n', '<C-R>', ':<C-U>lua ReplaceGlobalVisual()<CR>')
 
