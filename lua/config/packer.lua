@@ -13,9 +13,9 @@ return require('packer').startup(function(use)
     }
 
     -- for file tree
-    use { 'nvim-tree/nvim-tree.lua' }
+    use 'nvim-tree/nvim-tree.lua' 
 
-    use { 'nvim-tree/nvim-web-devicons' }
+    use 'nvim-tree/nvim-web-devicons' 
 
     use 'Mofiqul/vscode.nvim'
     -- to easily handle multiply buffers at once
@@ -34,14 +34,16 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
 
     -- Lsp-trouble for showing LSP diagnostics in a list
-    use { 'folke/lsp-trouble.nvim' }
+    use 'folke/lsp-trouble.nvim' 
 
     -- Fugitive for Git integration
     use 'tpope/vim-fugitive'
 
     -- Lsp-zero for LSP configuration and completion
     use { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' }
-    use { 'neovim/nvim-lspconfig' }
-    use { 'hrsh7th/nvim-cmp' }
-    use { 'hrsh7th/cmp-nvim-lsp' }
+    use 'neovim/nvim-lspconfig' 
+    use 'hrsh7th/nvim-cmp' 
+    use 'hrsh7th/cmp-nvim-lsp' 
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
 end)

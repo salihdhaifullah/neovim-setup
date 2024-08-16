@@ -1,15 +1,3 @@
--- install LSPs
--- os.execute('pnpm install -g @olrtg/emmet-language-server')
--- os.execute('pnpm install -g vscode-langservers-extracted')
--- os.execute('pnpm install -g @tailwindcss/language-server')
--- os.execute('pnpm install -g typescript typescript-language-server')
--- os.execute('pnpm install -g @vue/language-server')
--- os.execute('pnpm install -g bash-language-server')
--- os.execute('pnpm install -g css-variables-language-server')
--- os.execute('pnpm install -g vscode-langservers-extracted')
---
--- os.execute('dotnet tool install --global csharp-ls')
-
 ---
 -- LSP configuration
 ---
@@ -36,9 +24,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
         vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-        vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+        vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     end,
 })
 
@@ -46,12 +34,26 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require('lspconfig').emmet_language_server.setup({})
-require('lspconfig').eslint.setup({})
 require('lspconfig').tailwindcss.setup({})
+require('lspconfig').volar.setup({})
+require('lspconfig').bashls.setup({})
+require('lspconfig').csharp_ls.setup({})
+require('lspconfig').css_variables.setup({})
+require("lspconfig").dockerls.setup({})
+require('lspconfig').pyright.setup({})
+require('lspconfig').prismals.setup({})
+require('lspconfig').gopls.setup({})
+require('lspconfig').typos_lsp.setup({})
+
+-- vscode builtin
+require('lspconfig').eslint.setup({ capabilities = capabilities })
+require('lspconfig').cssls.setup({ capabilities = capabilities })
+require('lspconfig').html.setup({ capabilities = capabilities })
+require('lspconfig').jsonls.setup({ capabilities = capabilities })
+
 
 -- support for vue
 local vue_plugin_path = os.getenv("PNPM_HOME").."/".."global/5/node_modules/@vue/typescript-plugin"
-
 require('lspconfig').tsserver.setup({
     init_options = {
         plugins = {
@@ -64,30 +66,25 @@ require('lspconfig').tsserver.setup({
     },
     filetypes = {
         "javascript",
-        "typescript",
-        "vue",
-    },
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript", 
+        "typescriptreact", 
+        "typescript.tsx", 
+        "vue"
+    }
 })
-
-
-require('lspconfig').volar.setup({})
-require('lspconfig').bashls.setup({})
-require('lspconfig').csharp_ls.setup({})
-require('lspconfig').css_variables.setup({})
-require('lspconfig').cssls.setup({
-  capabilities = capabilities,
-})
-
 ---
 -- Autocompletion setup
 ---
 local cmp = require('cmp')
-
+ 
 cmp.setup({
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'luasnip' },
+      { name = 'path' },
     }, {
+      { name = 'luasnip' },
       { name = 'buffer' },
     }),
 
@@ -110,21 +107,4 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
 })
-
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    }),
-    matching = { disallow_symbol_nonprefix_matching = false }
-  })
 
