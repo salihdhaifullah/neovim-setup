@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/salih/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/nvim-cmp",

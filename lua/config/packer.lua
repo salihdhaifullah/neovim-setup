@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    use "EdenEast/nightfox.nvim"
+    
     -- Plenary for utility functions
     use 'nvim-lua/plenary.nvim'
 
