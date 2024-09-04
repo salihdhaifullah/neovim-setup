@@ -1,3 +1,2 @@
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set("n", "<C-G>", ":Gdiff :0<CR>")
-
+vim.keymap.set("n", "<C-g>", ":Gdiff<CR>")

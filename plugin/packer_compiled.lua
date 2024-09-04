@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/salih/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -99,15 +94,15 @@ _G.packer_plugins = {
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/salih/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["lsp-trouble.nvim"] = {
     loaded = true,
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim",
     url = "https://github.com/folke/lsp-trouble.nvim"
-  },
-  ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/home/salih/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -144,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["plenary.nvim"] = {
-    loaded = true,
-    path = "/home/salih/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -164,10 +154,10 @@ _G.packer_plugins = {
     path = "/home/salih/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vscode.nvim"] = {
+  ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/salih/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
+    path = "/home/salih/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
