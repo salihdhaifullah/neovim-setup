@@ -3,35 +3,27 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- for vsocde snippet support and custom snippets
-    use 'L3MON4D3/LuaSnip'
-
     -- Telescope for fuzzy finding and more
-    use {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.2'
-    }
-
-    -- for file tree
-    use 'nvim-tree/nvim-tree.lua' 
-
-    use 'nvim-tree/nvim-web-devicons' 
-
-    use 'Mofiqul/vscode.nvim'
-    -- to easily handle multiply buffers at once
-    use { 'akinsho/bufferline.nvim', tag = "*" }
-
+    use 'nvim-telescope/telescope.nvim'
+    
     -- Treesitter for syntax highlighting and more
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
 
+    -- for file tree
+    use 'nvim-tree/nvim-tree.lua' 
+
+    -- for file icons
+    use 'nvim-tree/nvim-web-devicons' 
+
+    -- to easily handle multiply buffers at once
+    use 'akinsho/bufferline.nvim'
+
+    -- theme
     use "EdenEast/nightfox.nvim"
     
-    -- Plenary for utility functions
-    use 'nvim-lua/plenary.nvim'
-
     -- Undotree for visualizing the undo history
     use 'mbbill/undotree'
 
@@ -41,11 +33,24 @@ return require('packer').startup(function(use)
     -- Fugitive for Git integration
     use 'tpope/vim-fugitive'
 
-    -- Lsp-zero for LSP configuration and completion
-    use { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' }
+    -- lsp config
     use 'neovim/nvim-lspconfig' 
-    use 'hrsh7th/nvim-cmp' 
-    use 'hrsh7th/cmp-nvim-lsp' 
+    
+    -- auto complete
+    use 'hrsh7th/nvim-cmp'
+    
+    -- auto complete from lsp
+    use 'hrsh7th/cmp-nvim-lsp'
+    
+    -- auto complete from buffer
     use 'hrsh7th/cmp-buffer'
+    
+    -- auto complete from file system 
     use 'hrsh7th/cmp-path'
+    
+    -- auto complete from snippets 
+    use 'hrsh7th/vim-vsnip'
+
+    -- prebuilt snippets
+    use 'rafamadriz/friendly-snippets'
 end)
