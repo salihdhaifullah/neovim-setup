@@ -50,7 +50,5 @@ return require('packer').startup(function(use)
     
     -- auto complete from snippets 
     use 'hrsh7th/vim-vsnip'
-
-    -- prebuilt snippets
-    use 'rafamadriz/friendly-snippets'
+    use 'hrsh7th/cmp-vsnip'
 end)
