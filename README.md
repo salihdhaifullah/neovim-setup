@@ -4,9 +4,3 @@
 ### `nvim .`
 ### `:PackerSync`
 
-
-## done you now completed Neovim setup
-### you can download lsp using `:Mason`
-
-sudo apt install fonts-powerline
-
