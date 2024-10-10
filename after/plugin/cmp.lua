@@ -1,12 +1,12 @@
 local cmp = require('cmp')
+local types = require('cmp.types')
 
 cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'path' },
-    }, {
         { name = 'vsnip' },
-        { name = 'buffer' },
+        { name = 'buffer' }
     }),
 
     snippet = {
@@ -21,6 +21,8 @@ cmp.setup({
     },
 
     mapping = cmp.mapping.preset.insert({
+        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -30,4 +32,3 @@ cmp.setup({
 })
 
 vim.keymap.set('n', '<C-s>', ':VsnipOpen<CR>')
-

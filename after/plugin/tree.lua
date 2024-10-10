@@ -15,6 +15,14 @@ require("nvim-tree").setup({
     filters = {
         dotfiles = false,
         git_ignored = false,
-    }
+    },
+    actions = {
+        open_file = {
+            quit_on_open = true,
+            window_picker = {
+                enable = false
+            },
+        },
+    },
 })
 vim.keymap.set("n", "<leader>a", ":NvimTreeToggle<CR>")

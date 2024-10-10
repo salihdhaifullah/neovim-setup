@@ -55,4 +55,14 @@ return require('packer').startup(function(use)
 
     -- for git diff
     use 'sindrets/diffview.nvim'
+
+    -- for todos highlighting
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {}
+        end
+    }
+
 end)
