@@ -65,4 +65,6 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- for code actions view
+    use 'nvim-telescope/telescope-ui-select.nvim'
 end)
